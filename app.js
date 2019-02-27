@@ -5,6 +5,7 @@ const sepia = document.querySelector('#sepia');
 const saturate = document.querySelector('#saturate');
 const img = document.querySelector('#image');
 const reset = document.querySelector('#reset');
+const imgUrl = document.querySelector('#img-url');
 
 const defaults = {
 	grayscale: 0,
@@ -22,6 +23,8 @@ saturate.addEventListener('input', updateFilterValue);
 
 reset.addEventListener('click', resetFilterValue);
 
+imgUrl.addEventListener('change', updateImageUrl);
+
 function updateFilterValue() {
   reset.disabled = false;
 
@@ -35,7 +38,7 @@ function updateFilterValue() {
 };
 
 function resetFilterValue() {
-	// Возвращаем картинку в исходное значение
+	// Возвращаем картинку в исходное состояние
 	img.style.filter = `
 	grayscale(${defaults.grayscale}%)
 	contrast(${defaults.contrast}%)
@@ -43,7 +46,7 @@ function resetFilterValue() {
 	sepia(${defaults.sepia}%)
 	saturate(${defaults.saturate}%)
 `;
-	// Возвращаем ползунки слайдера в исходное значение
+	// Возвращаем ползунки слайдера в исходное состояние
 	grayscale.value = defaults.grayscale;
 	contrast.value = defaults.contrast;
 	brightness.value = defaults.brightness;
@@ -52,4 +55,9 @@ function resetFilterValue() {
 
 	// Возвращаем кнопку в неактивное состояние
 	reset.disabled = false;
-}
+};
+
+function updateImageUrl() {
+	const imageLink = imgUrl.value;
+	img.src = imageLink;
+};

@@ -7,7 +7,7 @@ const img = document.querySelector('#image');
 const reset = document.querySelector('#reset');
 const imgUrl = document.querySelector('#img-url');
 
-const defaults = {
+const defaults = { // исходные значения ползунков
 	grayscale: 0,
 	contrast: 100,
 	brightness: 100,
@@ -57,7 +57,7 @@ function resetFilterValue() {
 	reset.disabled = true;
 };
 
-function updateImageUrl() {
+function updateImageUrl() { // меняем картинку по url
 	const imageLink = imgUrl.value;
 	img.src = imageLink;
 };

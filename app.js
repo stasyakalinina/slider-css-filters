@@ -54,7 +54,7 @@ function resetFilterValue() {
 	saturate.value = defaults.saturate;
 
 	// Возвращаем кнопку в неактивное состояние
-	reset.disabled = false;
+	reset.disabled = true;
 };
 
 function updateImageUrl() {
